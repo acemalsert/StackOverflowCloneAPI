@@ -10,7 +10,7 @@ namespace StackOverflowCloneAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API yapılandırması ve hizmetler
-
+            config.EnableCors();
             // Web API yolları
             config.MapHttpAttributeRoutes();
 

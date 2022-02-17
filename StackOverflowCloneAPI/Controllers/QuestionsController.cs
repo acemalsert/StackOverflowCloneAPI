@@ -7,12 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using StackOverflowCloneAPI.Data;
 using StackOverflowCloneAPI.Models;
 
 namespace StackOverflowCloneAPI.Controllers
 {
+    [EnableCors(origins: "https://stackoverflowcloneraklet.azurewebsites.net", headers: "*", methods: "*")]
     public class QuestionsController : ApiController
     {
         private StackOverflowCloneAPIContext db = new StackOverflowCloneAPIContext();
