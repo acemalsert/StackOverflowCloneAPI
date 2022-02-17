@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 
 using OpenQA.Selenium.Support.UI;
 using System;
-
+using System.Collections.ObjectModel;
 using Xunit;
 
 namespace StackOverflowCloneAPI.UITest
@@ -177,7 +177,44 @@ namespace StackOverflowCloneAPI.UITest
 
             }
 
+            [Fact]
+            public void NotDisplayCookieUseMessage()
+            {
+               
+
+
+                using (IWebDriver driver = new ChromeDriver())
+                {
+                    driver.Navigate().GoToUrl(homeurl);
+                    driver.Manage().Cookies.AddCookie(new Cookie("acceptedCookies", "true"));
+
+                    driver.Navigate().Refresh();
+
+                    ReadOnlyCollection <IWebElement> message = driver.FindElements(By.Id("CookiesBeingUsed"));
+              
+                    DemoHelper.Pause();
+
+                    Assert.Empty(message);
+
+
+                }
+
+            }
+            [Fact]
+            public void RenderQuestionsPage()
+            {
+                using (IWebDriver driver = new ChromeDriver())
+                {
+                    driver.Navigate().GoToUrl(homeurl);
+                    ITakesScreenshot screenshotdriver = (ITakesScreenshot)driver;
+                    Screenshot screenshot = screenshotdriver.GetScreenshot();
+                    screenshot.SaveAsFile("homepage.bmp", ScreenshotImageFormat.Bmp);
+                }
+            }
+
 
         }
+
+        
     }
 }
