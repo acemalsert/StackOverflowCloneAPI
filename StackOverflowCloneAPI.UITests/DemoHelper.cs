@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace StackOverflowCloneAPI.UITest
+namespace StackOverflowCloneAPI.UITests
 {
-    internal class DemoHelper
+    public class DemoHelper
     {
         public static void Pause(int secondsToPause = 3000)
         {

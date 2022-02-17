@@ -1,22 +1,23 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-
-using OpenQA.Selenium.Support.UI;
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
-namespace StackOverflowCloneAPI.UITest
+namespace StackOverflowCloneAPI.UITests
 {
-    public class StackOverflowCloneWebApplicationShould
+
+    public class StackOverflowCloneWebAppShould
     {
         const string homeurl = "https://stackoverflowcloneraklet.azurewebsites.net/";
         const string homeTitle = "Stack Overflow";
         const string askQuestionurl = "https://stackoverflowcloneraklet.azurewebsites.net/askQuestions/";
 
-
         [Fact]
-        [Trait("Category", "Smoke")]
+        [Trait("Category","Smoke")]
         public void LoadApplicationPage()
         {
             using (IWebDriver driver = new ChromeDriver())
@@ -30,7 +31,6 @@ namespace StackOverflowCloneAPI.UITest
             }
 
         }
-
         [Fact]
         [Trait("Category", "Smoke")]
         public void ReloadHomePage()
@@ -96,6 +96,5 @@ namespace StackOverflowCloneAPI.UITest
             }
 
         }
-
     }
 }
